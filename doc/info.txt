@@ -1,0 +1,15 @@
+코스피 산업지수 업종 분류체계
+
+코스닥 산업별지수 업종 분류
+
+GICS
+
+WICS
+대분류(10), 중분류(28), 소분류(83)로 구성
+
+
+
+
+https://purplechip.tistory.com/category/%ED%80%80%ED%8A%B8
+
+https://wikidocs.net/2872

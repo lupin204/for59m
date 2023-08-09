@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 
 
 
@@ -26,7 +26,8 @@ options.add_argument("lang=ko_KR")    # 가짜 플러그인 탑재
 options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36')  # user-agent 이름 설정
 
 # 드라이버 위치 경로 입력
-service = Service(ChromeDriverManager().install())
+# service = Service(ChromeDriverManager().install())
+service = Service("D:/myprjs/chromedriver/chromedriver.exe")
 driver = webdriver.Chrome(service=service, options=options)
 
 driver.get('http://www.example.com')
