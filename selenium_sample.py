@@ -9,16 +9,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pyautogui
 import pyperclip
-##### pip install pyautogui
-##### pip install pyperclip
 
 
 #브라우저 꺼짐 방지
 chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
+#chrome_options.add_experimental_option("detach", True)
 
 #불필요한 에러 메시지 없애기 
-chrome_options.add_experimental_option("excludeSwitched", ["enable-logging"])
+#chrome_options.add_experimental_option("excludeSwitched", ["enable-logging"])
 
 service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
