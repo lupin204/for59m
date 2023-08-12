@@ -39,33 +39,33 @@ options.add_experimental_option("excludeSwitched", ["enable-logging"])
 driver.implicitly_wait(2) # 웹 페이지가 로딩될때까지 5초 기다림
 driver.maximize_window() # 브라우저 최대화
 
-list = {"537"}
-
-driver.get(f"https://finance.naver.com/sise/sise_group_detail.naver?type=theme&no=537")
 
 
-div_type = driver.find_elements(By.CSS_SELECTOR, ".box_type_l")[0]
-div_grid = driver.find_elements(By.CSS_SELECTOR, ".box_type_l")[1]
+driver.get(f"https://finance.naver.com/sise/theme.naver")
 
 
-stock_list = div_grid.find_elements(By.CSS_SELECTOR, "table > tbody > tr")
-for stock in stock_list[:-2]:
-    # print(stock.text)
-    item_list = stock.find_elements(By.CSS_SELECTOR, "td")
+dom_theme_list_page = driver.find_elements(By.CSS_SELECTOR, 'table.Nnavi td')
+# theme_list_page_cnt = len(dom_theme_list_page) - 1
+
+
+for page in dom_theme_list_page[:-1]:
+    driver.implicitly_wait(2) # 웹 페이지가 로딩될때까지 5초 기다림
+    driver.get(f"https://finance.naver.com/sise/theme.naver?&page={page}")
     
-    item_link = item_list[0].find_element(By.CSS_SELECTOR, "a").get_attribute("href")
-    print(item_link)
-    item_no = item_link.split("=")[1]
-    item_name = item_list[0].find_element(By.CSS_SELECTOR, "a").text
-    현재가 = item_list[2].text.replace(',', '')
-    print(현재가)
-    # if 'red02' in item_list[3].find_element('span').get_attribute('class').split():
-        # 상승
-        # 전일비 = item_list[3].find_element('span').text
-    # else:
-        # 하락
-        # 전일비 = "-" + item_list[3].find_element('span').text
-    #if 'nv01' in item_list[3].find_element('span').get_attribute('class').split():
+    a_tags = driver.find_elements(By.XPATH, "//table[1]//td[@class='col_type1']//a[@href]")
+    theme_url_arr = [a.get_attribute("href") for a in a_tags]
+    
+
+for theme_url in theme_url_arr:
+    driver.implicitly_wait(2)
+    driver.get(theme_url)
+    aa_tags = driver.find_elements(By.XPATH, "//table[@class='type_5']//div[@class='name_area']//a[@href]")
+    code_arr = [aa.get_attribute("href") for aa in aa_tags]
+    name_arr = [aa.text for aa in aa_tags]
+
+    for na in name_arr:
+        print(na)
+
 
 
 
