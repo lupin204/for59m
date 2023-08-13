@@ -47,23 +47,30 @@ driver.get(f"https://finance.naver.com/sise/theme.naver")
 dom_theme_list_page = driver.find_elements(By.CSS_SELECTOR, 'table.Nnavi td')
 # theme_list_page_cnt = len(dom_theme_list_page) - 1
 
+theme_list = []
 
 for page in dom_theme_list_page[:-1]:
     driver.implicitly_wait(2) # 웹 페이지가 로딩될때까지 5초 기다림
     driver.get(f"https://finance.naver.com/sise/theme.naver?&page={page}")
     
-    a_tags = driver.find_elements(By.XPATH, "//table[1]//td[@class='col_type1']//a[@href]")
-    theme_url_arr = [a.get_attribute("href") for a in a_tags]
+    dom_theme_a_tags = driver.find_elements(By.XPATH, "//table[1]//td[@class='col_type1']//a[@href]")
     
+    for a_tag in dom_theme_a_tags:
+        theme_list.append({'title': a_tag.text, 'url': a_tag.get_attribute("href")})
+        
 
-for theme_url in theme_url_arr:
+for theme in theme_list:
     driver.implicitly_wait(2)
-    driver.get(theme_url)
-    aa_tags = driver.find_elements(By.XPATH, "//table[@class='type_5']//div[@class='name_area']//a[@href]")
+    driver.get(theme['url'])
+    dom_stock_a_tags = driver.find_elements(By.XPATH, "//table[@class='type_5']//div[@class='name_area']//a[@href]")
+    
+    # https://finance.naver.com/item/main.naver?code=900260
+    for aa in aa_tags:
+        code_arr.append
     code_arr = [aa.get_attribute("href") for aa in aa_tags]
     name_arr = [aa.text for aa in aa_tags]
 
-    for na in name_arr:
+    for na in code_arr:
         print(na)
 
 
