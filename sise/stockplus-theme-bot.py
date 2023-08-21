@@ -1,6 +1,4 @@
-# https://wikidocs.net/185103
 # https://stockplus.com/m/investing_strategies/topics/771 맥신 여기서부터 하나씩 늘어남
-# pip install python-telegram-bot==13.15
 
 # https://vercel.com/new/templates/python/flask-hello-world
 
@@ -11,22 +9,24 @@
 # https://uptimerobot.com/
 
 import telegram
+import asyncio
 
-TOKEN = ''
-bot = telegram.Bot(TOKEN)
-
-updates = bot.get_updates()
-print(updates[0]['my_chat_member']['chat']['id'])
+from datetime import datetime
 
 
+TOKEN = '6363791280:AAEkRY1l6OyB_DrGKOvmSZ6EBkW2SU56SBk'
+ChatId = '6578669349'
 
-###
+current_time = datetime.now().strftime("%H:%M:%S")
+msg = f'[{current_time}] hello'
 
-import telegram
+bot = telegram.Bot(token=TOKEN)
 
-TOKEN = 'your token'
-ChatId = 'StockPlusThemeBot'
-msg = 'hello'
+asyncio.run(bot.send_message(chat_id=ChatId , text=msg))
+    
+updates = asyncio.run(bot.get_updates())
 
-bot = telegram.Bot(TOKEN)
-bot.send_message(chat_id=ChatId , text=msg)
+    
+    
+
+
