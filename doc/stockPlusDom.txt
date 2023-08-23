@@ -1,0 +1,25 @@
+document.querySelectorAll('main div.topicExp')[0].textContent
+
+
+if (document.querySelector('main div.topicExp').textContent != '') {
+  push(url_idx)
+}
+
+
+document.querySelectorAll('main div.contW01 div.topicTable table tbody')
+
+'우리로' = document.querySelector('tbody tr td.lAlign a').textContent
+
+"22.38%" = document.querySelectorAll('tbody tr td')[1].'span'.textContent
+.up
+.down
+
+'우리로' = document.querySelector('tbody tr td.lAlign a').textContent
+
+
+qq = 'https://quot-chart.stockplus.com/images/kr/stock/m/mini/A046970.png'
+'046970' = qq.substr(-10).substr(0, 6)
+
+`https://stockplus.com/m/stocks/KOREA-A${stockId}`
+
+https://stockplus.com/m/stocks/KOREA-A046970
