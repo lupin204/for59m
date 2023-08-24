@@ -28,3 +28,15 @@ for item in data:
     doc_ref = collection_ref.document(item["Code"])  # Automatically generate a new document ID
     doc_ref.set(item)  # Set the data of the document
 
+
+############################################
+# Realtime Database의 레퍼런스 생성
+db = firestore.client()
+collection_ref = db.collection('stocks-name')
+
+
+# 데이터 쓰기
+for item in data:
+    doc_ref = collection_ref.document(item["Name"])  # Automatically generate a new document ID
+    doc_ref.set(item)  # Set the data of the document
+
