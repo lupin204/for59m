@@ -1,0 +1,13 @@
+theme_arr = [1,2,3,4]
+db.collection('themes').document('theme_idx').set({"data": theme_arr})
+
+db.collection('themes').document('theme_idx').set({"data": theme_arr})
+
+db.collection('themes').document('
+{"no": 771, "title": "초전도체", "item": [{"code": "123456", "name": "서남", "link": "http://aaaa"}, ...]
+
+
+
+
+
+stock_list = db.collection('stocks-name')
